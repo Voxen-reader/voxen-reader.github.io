@@ -1,0 +1,121 @@
+/* Voxen's hosted pages (docs/hosted/site/): the app's own tokens (App/Sources/Theme/Tokens.swift) — one background, one text colour, one
+   accent; Light by default, Dark when the device is dark. System fonts only: no web font, no @import, no url(), nothing fetched. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #fafaf7;
+  --text: #1a1a1a;
+  --accent: #3b6ea5;
+  --rule: rgba(26, 26, 26, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --text: #e5e7eb;
+    --accent: #60a5fa;
+    --rule: rgba(229, 231, 235, 0.2);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+header, main, footer {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1rem;
+  padding-top: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  display: inline-block;
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+
+/* ≥ 44 pt tall: a finger's target on a phone. */
+nav a {
+  display: inline-block;
+  padding: 0.6rem 0;
+  text-decoration: none;
+}
+
+nav a[aria-current] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+a { color: var(--accent); }
+
+main a { overflow-wrap: anywhere; }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+main {
+  padding-top: 4px;
+  padding-bottom: 32px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin: 1.5rem 0 1rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 2rem 0 0.5rem;
+}
+
+p, ul, address { margin: 0 0 1rem; }
+
+ul { padding-left: 1.25rem; }
+
+li { margin-bottom: 0.5rem; }
+
+address { font-style: normal; }
+
+.lead { font-size: 1.2rem; }
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding-bottom: 24px;
+}
